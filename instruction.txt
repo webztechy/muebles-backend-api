@@ -1,0 +1,109 @@
+& npm init -y
+* to create package.json
+
+# 1 to run client and backend server
+npm install nodemon concurrently
+
+# 2
+npm install express
+npm install express-fileupload
+
+# 3
+npm install cors
+
+# 4
+npm install mysql
+
+# 5
+npm install async
+
+# 6
+npm install axios
+
+
+# with npm 
+npm install dotenv
+
+https://www.npmjs.com/package/dotenv
+
+---------------------------------------------------------------
+
+package.json
+{
+  "name": "eshopper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "backend": "npm start --prefix backend",
+    "dev": "concurrently \"npm run server\" \"npm run backend\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.4"
+  }
+}
+
+
+
+
+PLUGINS
+https://momentjs.com/docs/
+https://momentjs.com/
+https://www.npmjs.com/package/sha1
+	npm install sha1
+https://expressjs.com/en/guide/routing.html
+
+
+=============================================================================
+
+* INSTALL CLIENT axios for upload
+npm install axios
+
+
+// REACT
+MAKE SURE TO INSTALL THIS TO CREATE APP
+npm install -g create-react-app
+
+#1
+npx create-react-app 'folder-name'
+
+#2
+npm install react-router-dom
+
+#3
+npm install react-redux --save
+
+npm install react-redux
+
+
+---------------------------------------------------------------------
+PLUGINS
+
+
+npm install react-confirm-alert --save
+https://www.npmjs.com/package/react-confirm-alert
+
+
+npm install --save moment react-moment
+npm install --save moment-timezone
+
+https://www.npmjs.com/package/react-moment
+
+
+
+https://www.npmjs.com/package/react-datetime
+
+https://reactjs.org/docs/conditional-rendering.html
+https://reactjs.org/docs/lists-and-keys.html
+https://reactjs.org/docs/hooks-effect.html
+https://reactjs.org/docs/hooks-state.html

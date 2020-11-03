@@ -1,0 +1,15 @@
+MAKE SURE TO INSTALL THIS TO CREATE APP
+npm install -g create-react-app
+
+#1
+npm create-react-app 'folder-name'
+
+#2
+npm install react-router-dom
+
+#3
+npm install react-redux --save
+
+npm install react-redux
+
+npm install redux

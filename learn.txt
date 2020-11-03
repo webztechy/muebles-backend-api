@@ -1,0 +1,4 @@
+We have a range of stuff on, but it would probably be doing WooCommerce and WordPress work. Do you work with Timber/Twig, ES6, Gulp etc btw?
+
+https://docs.timber.io/setup/languages/javascript
+https://gulpjs.com/docs/en/getting-started/creating-tasks
