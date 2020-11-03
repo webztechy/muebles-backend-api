@@ -1,9 +1,11 @@
 const express = require('express');
+const fileUpload = require('express-fileupload');
 var cors = require("cors");
 const app = express();
 
 // Then use it before your routes are set up:
 app.use(cors());
+app.use(fileUpload());
 
 //Import Routes
 const categoriesRoute = require('./routes/categories');

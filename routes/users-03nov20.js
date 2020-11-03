@@ -162,32 +162,10 @@ router.post('/add',function(req, res){
 
 router.post('/update',function(req, res){
 
-  /* if (req.files !== null) {
-    const file = req.files.avatar;
-    //console.log(file);
-
-    //file.mv(`${__dirname}/backend/public/uploads/${file.name}`, err => {
-    file.mv(`backend/public/uploads/${file.name}`, err => {
-      if (err) {
-        console.error(err);
-        return res.status(500).send(err);
-      }
-  
-      res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });
-    });
-
-  }
-
-  if (req.body !== null) {
-    const meta_data = req.body;
-    console.log(meta_data);
-  } */
-
   const meta_data = req.body;
   const user_id = parseInt(meta_data.id);
 
   async.parallel({
-
     user_main: function(callback) {
 
       let data_main = new Array();
@@ -228,37 +206,13 @@ router.post('/update',function(req, res){
           }
       }); 
 
-    },
-    user_avatar: function(callback) {
-
-      if (req.files !== null) {
-        const file = req.files.avatar;
-        file.mv(`backend/public/uploads/users/${file.name}`, err => {
-          if (err) {
-             callback(null, 0);
-          }else{
-
-            let query = " UPDATE tbl_users SET avatar = '"+file.name+"' WHERE id IN ("+user_id+") ";
-            connection.query(query, function( err, rows, fields ) {
-                if (err){
-                  callback(null, 0);
-                }else{
-                  callback(null, 1);
-                }
-            });
-          }
-        });
-    
-      }else{
-        callback(null, 1);
-      }
     }
 
   }, function(err, results) {
 
      if (err) throw err;
 
-     if (parseInt(results.user_main)>0 && parseInt(results.user_avatar)>0){
+     if (parseInt(results.user_main)>0){
 
         let data_meta = {
           address : meta_data.address,
@@ -283,7 +237,7 @@ router.post('/update',function(req, res){
 
      } 
 
-  }); 
+  });
 });
 
 
