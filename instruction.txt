@@ -63,6 +63,9 @@ https://www.npmjs.com/package/sha1
 	npm install sha1
 https://expressjs.com/en/guide/routing.html
 
+// multiple functions
+https://medium.com/velotio-perspectives/understanding-node-js-async-flows-parallel-serial-waterfall-and-queues-6f9c4badbc17
+
 
 =============================================================================
 
@@ -89,6 +92,7 @@ npm install react-redux
 ---------------------------------------------------------------------
 PLUGINS
 
+npm i jquery --save
 
 npm install react-confirm-alert --save
 https://www.npmjs.com/package/react-confirm-alert
@@ -107,3 +111,7 @@ https://reactjs.org/docs/conditional-rendering.html
 https://reactjs.org/docs/lists-and-keys.html
 https://reactjs.org/docs/hooks-effect.html
 https://reactjs.org/docs/hooks-state.html
+
+
+// to build
+https://create-react-app.dev/docs/using-the-public-folder/

@@ -75,7 +75,11 @@ router.post('/add',function(req, res){
             if (err){
               callback(null, 0);
             }else{
-              callback(null, rows[0].id);
+              let latest_id = rows[0].id;
+              if ( latest_id === null){
+                  latest_id = 1;
+              }
+              callback(null, latest_id);
             }
         });
 

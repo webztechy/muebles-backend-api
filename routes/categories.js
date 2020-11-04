@@ -18,11 +18,11 @@ router.post('/add',function(req, res){
             if (err){
               callback(null, 0);
             }else{
-              let max_id = rows[0].id;
-              if ( max_id === null){
-                  max_id = 1;
+              let latest_id = rows[0].id;
+              if ( latest_id === null){
+                  latest_id = 1;
               }
-              callback(null, max_id);
+              callback(null, latest_id);
             }
         });
 

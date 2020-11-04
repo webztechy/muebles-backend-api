@@ -82,9 +82,8 @@ router.post('/add',function(req, res){
 
   const meta_data = req.body;
 
-  async.waterfall([
-    
-    function(callback) {
+  async.parallel({
+    user_main: function(callback) {
 
       let data_main = new Array();
       data_main = {
@@ -125,38 +124,14 @@ router.post('/add',function(req, res){
           }
       }); 
 
-    },
-    function( new_user_id, callback) {
-
-      if (req.files !== null) {
-        const file = req.files.avatar;
-        file.mv(`backend/public/uploads/users/${file.name}`, err => {
-          if (err) {
-             callback(null, 0);
-          }else{
-
-            let query = " UPDATE tbl_users SET avatar = '"+file.name+"' WHERE id IN ("+new_user_id+") ";
-            connection.query(query, function( err, rows, fields ) {
-                if (err){
-                  callback(null, 0);
-                }else{
-                  callback(null, new_user_id);
-                }
-            });
-          }
-        });
-    
-      }else{
-        callback(null, new_user_id);
-      }
     }
 
-  ], function(err, result) {
+  }, function(err, results) {
 
      if (err) throw err;
 
-     if ( parseInt(result)>0 ){
-        const user_id = result;
+     if (parseInt(results.user_main)>0){
+        const user_id = results.user_main;
 
         let data_meta = {
           address : meta_data.address,
@@ -179,7 +154,7 @@ router.post('/add',function(req, res){
           }
         }); 
 
-     }  
+     } 
 
   });
 });
