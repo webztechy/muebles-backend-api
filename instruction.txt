@@ -115,3 +115,13 @@ https://reactjs.org/docs/hooks-state.html
 
 // to build
 https://create-react-app.dev/docs/using-the-public-folder/
+
+
+
+---------------------------------------------------------------------
+TO BUILD
+
+https://stackoverflow.com/questions/42461279/how-to-deploy-a-react-app-on-apache-web-server
+https://stackoverflow.com/questions/48183494/create-react-app-build-deploy-on-lamp-xampp-wamp
+
+https://stackoverflow.com/questions/42461279/how-to-deploy-a-react-app-on-apache-web-server

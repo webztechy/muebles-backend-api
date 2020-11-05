@@ -1,11 +1,41 @@
 var express = require("express");
 var sha1 = require('sha1');
+//const dotenv = require('dotenv');
 const connection = require('../model/connection');
 var utilities  = require('../helpers/utilities').Utilities;
 var async = require("async");
 var router = express.Router();
 
 var UtilitiesHelper = new utilities();
+
+
+router.post("/login", async (req, res) => {
+
+  const params_request = req.body;
+
+  try{
+
+    password_request_encoded = sha1(params_request['password']);
+
+    const query = "SELECT * FROM tbl_users WHERE username LIKE '"+params_request['username']+"' AND password  LIKE '"+password_request_encoded+"' ";
+    connection.query( query , function(
+      err,
+      rows,
+      fields
+    ) {
+        if (err){
+          res.status(500).send(err);
+        }else{
+          res.send(JSON.stringify(rows));
+        }
+    });
+
+  }catch( err ){
+    res.status(400).send(err);
+  } 
+
+});
+
 
 router.post("/list", async (req, res) => {
 
@@ -130,7 +160,8 @@ router.post('/add',function(req, res){
 
       if (req.files !== null) {
         const file = req.files.avatar;
-        file.mv(`backend/public/uploads/users/${file.name}`, err => {
+        //file.mv(`backend/public/uploads/users/${file.name}`, err => {
+        file.mv(`uploads/users/${file.name}`, err => {
           if (err) {
              callback(null, 0);
           }else{
@@ -258,7 +289,10 @@ router.post('/update',function(req, res){
 
       if (req.files !== null) {
         const file = req.files.avatar;
-        file.mv(`backend/public/uploads/users/${file.name}`, err => {
+        //file.mv(`backend/public/uploads/users/${file.name}`, err => {
+         file.mv(`uploads/users/${file.name}`, err => {
+        // console.log(`${__dirname}/backend/public/uploads/users/${file.name}`);
+        //file.mv(`${__dirname}/backend/public/uploads/users/${file.name}`, err => {
           if (err) {
              callback(null, 0);
           }else{
