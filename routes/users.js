@@ -41,16 +41,35 @@ router.post("/list", async (req, res) => {
 
   const params_request = req.body;
 
+  let sql_limit_arr = new Array();
+
+
+  if (params_request.hasOwnProperty('page')) {
+    let page = ( parseInt(params_request['page'])===1) ? 0 :  parseInt(params_request['page']);
+    if (page>1){ page = page-1; }
+    sql_limit_arr.push( page );
+  }
+
+  if (params_request.hasOwnProperty('limit')) {
+    sql_limit_arr.push( parseInt(params_request['limit']) );
+  }
+
+
   async.parallel({
 
     user_list: function(callback) {
 
       let query = "SELECT * FROM tbl_users ORDER BY first_name ASC ";
 
+      if ( sql_limit_arr.length>1 ){
+        query += " LIMIT "+sql_limit_arr.join(',');
+      }
+
       if (params_request.hasOwnProperty('id')) {
         query = " SELECT * FROM tbl_users WHERE id IN ("+params_request['id']+")";
       }
 
+      //console.log(query);
       connection.query(query, function(
         err, rows, fields
       ) {
@@ -61,14 +80,28 @@ router.post("/list", async (req, res) => {
           }
       });
 
+    },
+    total_list: function(callback) {
+
+        const query = " SELECT COUNT(*) as total FROM tbl_users ";
+        connection.query(query, function(
+          err, rows, fields
+        ) {
+            if (err){
+              callback(null, 0);
+            }else{
+              callback(null, rows[0]['total']);
+            }
+        });
     }
 
   }, function(err, results) {
 
     try{
 
+      const total_list = results.total_list;
       let user_list = results.user_list;
-      
+
       const all_users_id_arr =  new Array();
       const all_users_rows = {};
       for (const [key, row] of Object.entries(user_list)) {
@@ -160,8 +193,8 @@ router.post('/add',function(req, res){
 
       if (req.files !== null) {
         const file = req.files.avatar;
-        //file.mv(`backend/public/uploads/users/${file.name}`, err => {
-        file.mv(`uploads/users/${file.name}`, err => {
+        file.mv(`backend/public/uploads/users/${file.name}`, err => {
+        //file.mv(`uploads/users/${file.name}`, err => {
           if (err) {
              callback(null, 0);
           }else{
@@ -289,8 +322,8 @@ router.post('/update',function(req, res){
 
       if (req.files !== null) {
         const file = req.files.avatar;
-        //file.mv(`backend/public/uploads/users/${file.name}`, err => {
-         file.mv(`uploads/users/${file.name}`, err => {
+        file.mv(`backend/public/uploads/users/${file.name}`, err => {
+        //file.mv(`uploads/users/${file.name}`, err => {
         // console.log(`${__dirname}/backend/public/uploads/users/${file.name}`);
         //file.mv(`${__dirname}/backend/public/uploads/users/${file.name}`, err => {
           if (err) {

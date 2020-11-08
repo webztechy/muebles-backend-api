@@ -1,0 +1,3 @@
+https://github.com/vuejs/vue-router/blob/dev/examples/named-routes/app.js
+
+https://router.vuejs.org/guide/essentials/named-routes.html

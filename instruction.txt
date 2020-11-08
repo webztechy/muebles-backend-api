@@ -16,6 +16,10 @@ npm install mysql
 
 # 5
 npm install async
+  or 
+
+    npm install --save-dev gulp
+    https://gulpjs.com/docs/en/getting-started/creating-tasks
 
 # 6
 npm install axios
@@ -23,6 +27,12 @@ npm install axios
 
 # with npm 
 npm install dotenv
+
+
+
+
+https://gulpjs.com/docs/en/getting-started/creating-tasks
+https://medium.com/velotio-perspectives/understanding-node-js-async-flows-parallel-serial-waterfall-and-queues-6f9c4badbc17
 
 https://www.npmjs.com/package/dotenv
 
@@ -90,6 +100,21 @@ npm install react-redux
 
 
 ---------------------------------------------------------------------
+CHANGE PORT
+package.json
+
+"scripts": {
+    "start": "SET PORT=3300 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  
+https://medium.com/@obieri.grace/a-simple-way-to-change-react-app-default-port-b8c32d8e0ef0
+
+
+
+---------------------------------------------------------------------
 PLUGINS
 
 npm i jquery --save
@@ -112,9 +137,49 @@ https://reactjs.org/docs/lists-and-keys.html
 https://reactjs.org/docs/hooks-effect.html
 https://reactjs.org/docs/hooks-state.html
 
+TEXT EDITOR
+https://draftjs.org/docs/getting-started
 
+
+---------------------------------------------------------------------
 // to build
 https://create-react-app.dev/docs/using-the-public-folder/
+
+
+TO IMPORT SCRIPTS
+npm install --save react-script-tag
+https://medium.com/better-programming/4-ways-of-adding-external-js-files-in-reactjs-823f85de3668
+
+
+import React, { Component } from 'react';
+import ScriptTag from 'react-script-tag';
+ 
+class Demo extends Component {
+ 
+    render() {
+        return (<ScriptTag isHydrating={true} type="text/javascript" src="some_script.js" />);
+    }
+}
+
+---------------------------------------------------------------------
+https://www.npmjs.com/package/react-document-title
+
+npm install --save react-document-title
+
+var App = React.createClass({
+  render: function () {
+    // Use "My Web App" if no child overrides this
+    return (
+      <DocumentTitle title='My Web App'>
+        <this.props.activeRouteHandler />
+      </DocumentTitle>
+    );
+  }
+});
+ 
+
+ 
+
 
 
 

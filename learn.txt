@@ -4,5 +4,16 @@ https://docs.timber.io/setup/languages/javascript
 https://gulpjs.com/docs/en/getting-started/creating-tasks
 
 
+https://gulpjs.com/docs/en/getting-started/quick-start
+
+
+Ember.js
+https://guides.emberjs.com/release/tutorial/part-1/building-pages/
+
+MongoDB
+https://www.tutorialspoint.com/mongodb/index.htm
+https://docs.mongodb.com/manual/tutorial/
+
+
 SAMPLE SITE
 https://www.asda.com/
