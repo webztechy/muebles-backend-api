@@ -17,3 +17,22 @@ https://docs.mongodb.com/manual/tutorial/
 
 SAMPLE SITE
 https://www.asda.com/
+
+
+LAZY LOAD IMAGE
+https://codesandbox.io/s/lazyloading-image-wfei7?file=/src/LazyImage.js
+
+<Grid>
+{[...Array(50).keys()].map(i => (
+  <LazyImage
+	key={i}
+	src={`https://picsum.photos/1000/1000?random=${i}`}
+	alt={`Random image ${i}`}
+  />
+))}
+</Grid>
+
+
+javascript base64 encode/decode
+https://www.digitalocean.com/community/tutorials/how-to-encode-and-decode-strings-with-base64-in-javascript
+
