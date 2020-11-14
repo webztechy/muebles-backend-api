@@ -1,8 +1,94 @@
+& npm init -y
+* to create package.json
+
+# 1 to run client and backend server
+npm install nodemon concurrently
+
+# 2
+npm install express
+npm install express-fileupload
+
+# 3
+npm install cors
+
+# 4
+npm install mysql
+
+# 5
+npm install async
+  or 
+
+    npm install --save-dev gulp
+    https://gulpjs.com/docs/en/getting-started/creating-tasks
+
+# 6
+npm install axios
+
+
+# with npm 
+npm install dotenv
+
+
+
+
+https://gulpjs.com/docs/en/getting-started/creating-tasks
+https://medium.com/velotio-perspectives/understanding-node-js-async-flows-parallel-serial-waterfall-and-queues-6f9c4badbc17
+
+https://www.npmjs.com/package/dotenv
+
+---------------------------------------------------------------
+
+package.json
+{
+  "name": "eshopper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "backend": "npm start --prefix backend",
+    "dev": "concurrently \"npm run server\" \"npm run backend\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.4"
+  }
+}
+
+
+
+
+PLUGINS
+https://momentjs.com/docs/
+https://momentjs.com/
+https://www.npmjs.com/package/sha1
+	npm install sha1
+https://expressjs.com/en/guide/routing.html
+
+// multiple functions
+https://medium.com/velotio-perspectives/understanding-node-js-async-flows-parallel-serial-waterfall-and-queues-6f9c4badbc17
+
+
+=============================================================================
+
+* INSTALL CLIENT axios for upload
+npm install axios
+
+
+// REACT
 MAKE SURE TO INSTALL THIS TO CREATE APP
 npm install -g create-react-app
 
 #1
-npm create-react-app 'folder-name'
+npx create-react-app 'folder-name'
 
 #2
 npm install react-router-dom
@@ -12,4 +98,95 @@ npm install react-redux --save
 
 npm install react-redux
 
-npm install redux
+
+---------------------------------------------------------------------
+CHANGE PORT
+package.json
+
+"scripts": {
+    "start": "SET PORT=3300 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  
+https://medium.com/@obieri.grace/a-simple-way-to-change-react-app-default-port-b8c32d8e0ef0
+
+
+
+---------------------------------------------------------------------
+PLUGINS
+
+npm i jquery --save
+
+npm install react-confirm-alert --save
+https://www.npmjs.com/package/react-confirm-alert
+
+
+npm install --save moment react-moment
+npm install --save moment-timezone
+
+https://www.npmjs.com/package/react-moment
+
+
+
+https://www.npmjs.com/package/react-datetime
+
+https://reactjs.org/docs/conditional-rendering.html
+https://reactjs.org/docs/lists-and-keys.html
+https://reactjs.org/docs/hooks-effect.html
+https://reactjs.org/docs/hooks-state.html
+
+TEXT EDITOR
+https://draftjs.org/docs/getting-started
+
+
+---------------------------------------------------------------------
+// to build
+https://create-react-app.dev/docs/using-the-public-folder/
+
+
+TO IMPORT SCRIPTS
+npm install --save react-script-tag
+https://medium.com/better-programming/4-ways-of-adding-external-js-files-in-reactjs-823f85de3668
+
+
+import React, { Component } from 'react';
+import ScriptTag from 'react-script-tag';
+ 
+class Demo extends Component {
+ 
+    render() {
+        return (<ScriptTag isHydrating={true} type="text/javascript" src="some_script.js" />);
+    }
+}
+
+---------------------------------------------------------------------
+https://www.npmjs.com/package/react-document-title
+
+npm install --save react-document-title
+
+var App = React.createClass({
+  render: function () {
+    // Use "My Web App" if no child overrides this
+    return (
+      <DocumentTitle title='My Web App'>
+        <this.props.activeRouteHandler />
+      </DocumentTitle>
+    );
+  }
+});
+ 
+
+ 
+
+
+
+
+---------------------------------------------------------------------
+TO BUILD
+
+https://stackoverflow.com/questions/42461279/how-to-deploy-a-react-app-on-apache-web-server
+https://stackoverflow.com/questions/48183494/create-react-app-build-deploy-on-lamp-xampp-wamp
+
+https://stackoverflow.com/questions/42461279/how-to-deploy-a-react-app-on-apache-web-server

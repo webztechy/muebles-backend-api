@@ -23,22 +23,16 @@ router.post("/list", async (req, res) => {
     }
 
     async.parallel({
-      product_list: function(callback) {
+      user_list: function(callback) {
 
         let query = "SELECT * FROM tbl_products WHERE status = 1 ORDER BY name ASC ";
-
-        if (params_request.hasOwnProperty('id')) {
-          query = " SELECT * FROM tbl_products WHERE id IN ("+params_request['id']+")";
-        }
-
-        if (params_request.hasOwnProperty('category_ids')) {
-          query = " SELECT * FROM tbl_products WHERE category_id IN ("+params_request['category_ids']+")";
-        }
-
         if ( sql_limit_arr.length>1 ){
           query += " LIMIT "+sql_limit_arr.join(',');
         }
 
+        if (params_request.hasOwnProperty('id')) {
+          query = " SELECT * FROM tbl_products WHERE id IN ("+params_request['id']+")";
+        }
 
         connection.query(query, function(
           err, rows, fields
@@ -199,11 +193,12 @@ router.post('/update',function(req, res){
 
       let data_main = new Array();
       data_main = {
-                name : meta_data.name,
-                category_id : meta_data.category_id,
-                featured_status : meta_data.featured_status,
-                status : meta_data.status
-          }
+                      username : meta_data.username,
+                      first_name : meta_data.first_name,
+                      last_name : meta_data.last_name,
+                      type : meta_data.type,
+                      status : meta_data.status,
+                  }
 
       let data_meta = new Array();
       for (const [key, value] of Object.entries(data_main)) {

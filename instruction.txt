@@ -98,6 +98,8 @@ npm install react-redux --save
 
 npm install react-redux
 
+npm install redux
+
 
 ---------------------------------------------------------------------
 CHANGE PORT
@@ -177,9 +179,15 @@ var App = React.createClass({
   }
 });
  
+ 
+ 
+or use
+import MetaTags from 'react-meta-tags';
 
  
 
+
+https://create-react-app.dev/docs/adding-typescript/
 
 
 
