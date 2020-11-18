@@ -14,7 +14,7 @@ router.post("/list", async (req, res) => {
 
     if (params_request.hasOwnProperty('page')) {
       let page = ( parseInt(params_request['page'])===1) ? 0 :  parseInt(params_request['page']);
-      if (page>1){ page = page-1; }
+      if (page>1){ page = (page-1) * parseInt(params_request['limit']) ; }
       sql_limit_arr.push( page );
     }
 
