@@ -10,13 +10,6 @@ var UtilitiesHelper = new utilities();
 router.post("/add_to_cart", async (req, res) => {
 
   const params_request = req.body;
-  let action_item = 'add';
-
-  if ( params_request.hasOwnProperty('action') ) {
-    action_item = params_request['action'];
-  }
-
-  action_item = action_item.toString().toLowerCase();
 
   if ( params_request.hasOwnProperty('id') ) {
       
@@ -83,21 +76,10 @@ router.post("/add_to_cart", async (req, res) => {
 
           if ( product_detail.status===1 ){
 
-            let new_quantity = 0;
-            if (action_item=='add'){
-              new_quantity = parseInt(product_detail.counter)+ 1;
-
-            }else if (action_item=='minus'){
-              new_quantity = parseInt(product_detail.counter)- 1;
-              if (new_quantity==0){
-                new_quantity = 1;
-              }
-            }
-
             let data_main = new Array();
             data_main = {
                           product_id : product_id_request,
-                          quantity : new_quantity,
+                          quantity : (product_detail.counter + 1),
                           price : product_detail.price
                       }
 
